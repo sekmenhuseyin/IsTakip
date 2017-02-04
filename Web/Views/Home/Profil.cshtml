@@ -1,0 +1,110 @@
+﻿@using Web.Helpers
+@model Web.ViewModel.ProfilViewModel
+
+@section Meta{
+    <title>Profil</title>
+}
+
+@section Content {
+    <h2 class="sub-header">Profil Bilgileri</h2>
+    <div class="table-responsive projeform">
+        @using (Html.BeginForm("Profil", "Home", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <ul>
+                @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Eleman.Id)
+                @Html.HiddenFor(model => model.Eleman.Url)
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Eleman.Eposta)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.Eleman.Eposta, htmlAttributes: new { @class = "forminput" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Eleman.Sifre)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.Eleman.Sifre, htmlAttributes: new { @class = "forminput" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Eleman.Ad)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.Eleman.Ad, htmlAttributes: new { @class = "forminput" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Eleman.Soyad)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.Eleman.Soyad, htmlAttributes: new { @class = "forminput" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Eleman.Telefon)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.Eleman.Telefon, htmlAttributes: new { @class = "forminput" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Eleman.Departman.DepartmanAdi)</div>
+                    <div class="formtur">
+                        @Html.DisplayTextFor(model => model.Eleman.Departman.DepartmanAdi)
+                        @Html.HiddenFor(model => model.Eleman.DepartmanId)
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Eleman.Rol.RolAdi)</div>
+                    <div class="formtur">
+                        @Html.DisplayTextFor(model => model.Eleman.Rol.RolAdi)
+                        @Html.HiddenFor(model => model.Eleman.RolId)
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Eleman.Durum)</div>
+                    <div class="formtur">
+                        @Html.DisplayTextFor(model => model.Eleman.Durum)
+                        @Html.HiddenFor(model => model.Eleman.Durum)
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Eleman.DurumAciklamasi)</div>
+                    <div class="formtur">
+                        @Html.TextAreaFor(model => model.Eleman.DurumAciklamasi, htmlAttributes: new { @class = "formtext" })
+                    </div>
+                </li>
+                @{
+                    <li>
+                        <div class="formbaslik">@Html.LabelFor(model => model.Eleman.AvatarResim)</div>
+                        <div class="formtur">
+                            @Html.PersonelGorselBase64Image(Model.Eleman)
+                            @Html.HiddenFor(model => model.Eleman.AvatarResim)
+                            @Html.HiddenFor(model => model.Eleman.AvatarResimIsmi)
+                            @Html.HiddenFor(model => model.Eleman.AvatarResimTipi)
+                            @if (Model.Eleman.AvatarResim != null)
+                            {
+                                @Html.ActionLink("Görseli Kaldır", "AvatarGorselKaldir", "Home", htmlAttributes: new { @class = "text-danger" })
+                            }
+                        </div>
+                    </li>
+                }
+                <li>
+                    <div class="formbaslik"></div>
+                    <div class="formtur">
+                        <input type="file" name="AvatarGorsel" accept="image/*" />
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Eleman.IzınGunSayisi)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.Eleman.IzınGunSayisi, htmlAttributes: new { @class = "forminput" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formtur">
+                        <input type="submit" Value="Profil Güncelle" name="" class="formsend" id="" />
+                    </div>
+                </li>
+            </ul>
+                    }
+    </div>
+}

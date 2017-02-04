@@ -1,0 +1,85 @@
+﻿@model Data.Model.Izin
+@section Meta{
+    <title>İzin Güncelle</title>
+}
+
+@section Content {
+    <h2 class="sub-header">İzin Güncelle</h2>
+    <div class="table-responsive projeform">
+        @using (Html.BeginForm("IzinGuncelle", "Izin", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.Url)
+            @Html.HiddenFor(model => model.ElemanId)
+            @Html.HiddenFor(model => model.Eleman.Url)
+            <ul class="form-style">
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Eleman.Ad) @Html.LabelFor(model => model.Eleman.Soyad)</div>
+                    <div class="formtur">
+                        @Html.DisplayTextFor(model => model.Eleman.Ad) @Html.DisplayTextFor(model => model.Eleman.Soyad)
+                    </div>
+                    <hr />
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Eleman.Departman.DepartmanAdi)</div>
+                    <div class="formtur">
+                        @Html.DisplayTextFor(model => model.Eleman.Departman.DepartmanAdi)
+                    </div>
+                    <hr />
+                </li>
+                
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.IzinBasligi)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.IzinBasligi, htmlAttributes: new { @class = "forminput", @datasize="100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.IzinAciklamasi)</div>
+                    <div class="formtur">
+                        @Html.TextAreaFor(model => model.IzinAciklamasi, htmlAttributes: new { @class = "formtext", @datasize = "100%" })
+                    </div>
+                </li>
+               @{
+                   if (Session["YoneticiRolId"].ToString() != "4")
+                   {
+                       if (Session["YoneticiUrl"].ToString() != Model.Eleman.Url || Session["YoneticiRolId"].ToString() == "1" || Session["YoneticiRolId"].ToString() == "2")
+                       {
+                        <li>
+                            <div class="formbaslik">@Html.LabelFor(model => model.IzinDurum)</div>
+                            <div class="formtur">
+                                @Html.EnumDropDownListFor(model => model.IzinDurum, "Personel Durumu Seçiniz !", htmlAttributes: new { @class = "formselect", @datasize = "100%" })
+                            </div>
+                        </li>
+                        <li>
+                            <div class="formbaslik">@Html.LabelFor(model => model.IzinDurumAciklamasi)</div>
+                            <div class="formtur">
+                                @Html.TextAreaFor(model => model.IzinDurumAciklamasi, htmlAttributes: new { @class = "formtext", @datasize = "100%" })
+                            </div>
+                        </li>
+                       }
+                   }
+            }
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.BaslangicTarihi)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.BaslangicTarihi, htmlAttributes: new { @class = "forminput", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.BitisTarihi)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.BitisTarihi, htmlAttributes: new { @class = "forminput", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formtur">
+                        <input type="submit" Value="İzin Güncelle" name="" class="formsend" id="" />
+                    </div>
+                </li>
+            </ul>
+        }
+    </div>
+}

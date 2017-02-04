@@ -1,0 +1,69 @@
+﻿@model Web.ViewModel.IsViewModel
+
+@section Meta{
+    <title>İş Ekle</title>
+}
+
+@section Content {
+    <h2 class="sub-header">İş Ekle</h2>
+    <div class="table-responsive projeform">
+        @using (Html.BeginForm("IsEkle", "Is", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "text-danger" })
+            <ul class="form-style">
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Is.IsBasligi)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.Is.IsBasligi, htmlAttributes: new { @class = "forminput", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Is.Durum)</div>
+                    <div class="formtur">
+                        @Html.EnumDropDownListFor(model => model.Is.Durum, "İş Durumu Seçiniz !", htmlAttributes: new { @class = "formselect", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Is.IsAciklamasi)</div>
+                    <div class="formtur">
+                        @Html.TextAreaFor(model => model.Is.IsAciklamasi, htmlAttributes: new { @class = "formtext", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Is.DurumAciklama)</div>
+                    <div class="formtur">
+                        @Html.TextAreaFor(model => model.Is.DurumAciklama, htmlAttributes: new { @class = "formtext", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Is.DepartmanId)</div>
+                    <div class="formtur">
+                        @Html.DropDownListFor(model => model.Is.DepartmanId, new SelectList(Model.Departmanlar, "Id", "DepartmanAdi"), htmlAttributes: new { @class = "formselect", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Is.BitisTarihi)</div>
+                    <div class="formtur">
+                        @Html.EditorFor(model => model.Is.BitisTarihi, new {htmlAttributes = new {@type="date", @class = "date", @datasize = "100%" } })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">Çalışanlar</div>
+                    <div class="formtur">
+                          @Html.CheckBoxListFor(x => x.SeciliCalisanlarinIdleri, 
+                          x => x.Calisanlar,  
+                          x => x.Id,
+                          x => x.Ad,
+                          x => x.SecilenCalisanlar) 
+                    </div>
+                </li>
+                <li>
+                    <div class="formtur">
+                        <input type="submit" Value="İş Ekle" name="" class="formsend" id="" />
+                    </div>
+                </li>
+            </ul>
+        }
+    </div>
+}

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Data.Model.Departman>
+@section Meta{
+    <title>Departman Listesi</title>
+}
+
+@section Content {
+    <h2 class="sub-header">Departman Listesi</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.DepartmanAdi)</th>
+                    <th>@Html.DisplayNameFor(model => model.Durum)</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(model => item.DepartmanAdi)</td>
+                        <td>
+                            @{ 
+                                string _durum;
+                                if (item.Durum == true)
+                                {
+                                    _durum = "Aktif";
+                                }
+                                else
+                                {
+                                    _durum = "Pasif";
+                                }
+                            }
+                            @_durum
+                        </td>
+                        <td>
+                            @Html.ActionLink("Düzenle", "DepartmanGuncelle", "Departman", new { Url = item.Url }, htmlAttributes: new { @class = "btndzn" })
+                            @Html.ActionLink("Sil", "DepartmanSil", "Departman", new { Url = item.Url }, htmlAttributes: new { @class = "btnsil" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

@@ -1,0 +1,89 @@
+﻿@model Web.ViewModel.IzinViewModel
+@section Meta{
+    <title>İzin Listesi</title>
+}
+
+@section Content {
+    <h2 class="sub-header">İzin Talepleri</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Izin.IzinBasligi)</th>
+                    <th>@Html.DisplayNameFor(model => model.Izin.Eleman.Ad) @Html.DisplayNameFor(model => model.Izin.Eleman.Soyad)</th>
+                    <th>@Html.DisplayNameFor(model => model.Izin.BaslangicTarihi)</th>
+                    <th>@Html.DisplayNameFor(model => model.Izin.BitisTarihi)</th>
+                    <th>@Html.DisplayNameFor(model => model.Izin.IzinDurum)</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Izinler)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(model => item.IzinBasligi)</td>
+                        <td>@Html.DisplayFor(model => item.Eleman.Ad) @Html.DisplayFor(model => item.Eleman.Soyad)</td>
+                        <td>@Html.DisplayFor(model => item.BaslangicTarihi)</td>
+                        <td>@Html.DisplayFor(model => item.BitisTarihi)</td>
+                        <td>@Html.DisplayFor(model => item.IzinDurum)</td>
+                        <td>
+                            @Html.ActionLink("Detay", "IzinDetay", "Izin", new { Url = item.Url }, htmlAttributes: new { @class = "btndty" })
+                            @if (item.IzinDurum == Data.Enums.IzinDurumlari.Beklemede)
+                            {
+                                @Html.ActionLink("Düzenle", "IzinGuncelle", "Izin", new { Url = item.Url }, htmlAttributes: new { @class = "btndzn" })
+                            }
+                            else
+                            {
+                                if (Session["YoneticiRolId"].ToString() == "1" || Session["YoneticiRolId"].ToString() == "2")
+                                {
+                                    @Html.ActionLink("Düzenle", "IzinGuncelle", "Izin", new { Url = item.Url }, htmlAttributes: new { @class = "btndzn" })
+                                }
+                            }
+                            @if (item.IzinDurum == Data.Enums.IzinDurumlari.Beklemede || Session["YoneticiRolId"].ToString() == "1" || Session["YoneticiRolId"].ToString() == "2")
+                            {
+                                @Html.ActionLink("Sil", "IzinSil", "Izin", new { Url = item.Url }, htmlAttributes: new { @class = "btnsil" })
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+    @if (Session["YoneticiRolId"].ToString() == "3")
+    {
+        <h2 class="sub-header">Çalışanların İzin Talepleri</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Izin.IzinBasligi)</th>
+                        <th>@Html.DisplayNameFor(model => model.Izin.Eleman.Ad) @Html.DisplayNameFor(model => model.Izin.Eleman.Soyad)</th>
+                        <th>@Html.DisplayNameFor(model => model.Izin.BaslangicTarihi)</th>
+                        <th>@Html.DisplayNameFor(model => model.Izin.BitisTarihi)</th>
+                        <th>@Html.DisplayNameFor(model => model.Izin.IzinDurum)</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.CalisanIzinleri)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(model => item.IzinBasligi)</td>
+                            <td>@Html.DisplayFor(model => item.Eleman.Ad) @Html.DisplayFor(model => item.Eleman.Soyad)</td>
+                            <td>@Html.DisplayFor(model => item.BaslangicTarihi)</td>
+                            <td>@Html.DisplayFor(model => item.BitisTarihi)</td>
+                            <td>@Html.DisplayFor(model => item.IzinDurum)</td>
+                            <td>
+                                @Html.ActionLink("Detay", "IzinDetay", "Izin", new { Url = item.Url }, htmlAttributes: new { @class = "btndty" })
+                                @Html.ActionLink("Düzenle", "IzinGuncelle", "Izin", new { Url = item.Url }, htmlAttributes: new { @class = "btndzn" })
+                                @Html.ActionLink("Sil", "IzinSil", "Izin", new { Url = item.Url }, htmlAttributes: new { @class = "btnsil" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+}

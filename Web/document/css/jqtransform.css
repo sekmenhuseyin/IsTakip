@@ -1,0 +1,210 @@
+.jqtransformdone label {
+	display:block;
+	float:left;
+	margin:1px 8px 0 5px;
+	color: #565656;
+	font-size: 13px;
+	min-width: 145px;
+}
+.tp {
+	color: #565656;
+	font-size: 13px;
+	font-weight:600;
+	margin: 8px 8px 0 0px;
+	float: left;
+}
+
+.gonder{padding: 15px 20px; background:#343434; color: #FFF; float: right; font-weight: 500; text-align: center;  border: none; cursor: pointer;}
+.gonder:hover{background:#e8aa00; color: #ffffff; }
+/* button */
+span.jqFileInput {
+	height: 45px;
+	line-height: 45px;
+	width: 18%;
+	color: #ffffff;
+	background: #00426D;
+	padding: 0 2% 0 2%;
+	border: none;
+	cursor: pointer;
+	display:block;
+	float:right; 
+	text-align: center; margin: 0px 0 0 1px;
+ 
+}
+span.jqFileInput:hover {
+	background:#343434;
+	color: #ffffff;
+}
+.code{width: 17%; height: 45px; float: left; background:#858585;}
+.code img{width: 100%;}
+/* input */
+.jqTransformInputWrapper {
+	 width: 99%;
+	float:left;
+	padding:0;
+	background:#FFF; 
+}
+.jqTransformInputInner div input {
+	width: 100% !important;
+	background: #f2f1f0; color: #605b5b; border: none; height: 45px; padding: 0 20px; 
+}
+.contact-mesaj{ color: #605b5b !important;}
+
+
+
+
+
+/* textarea */
+.jqTransformTextarea {
+	color:#605b5b !important;
+	float:left;
+	width: 100% !important;
+	background: #FFF;
+}
+.jqTransformTextarea textarea {
+	font-size:14px;
+	margin:0;
+	resize:none; 
+	width: 100% !important;
+	background: #f2f1f0; color: #605b5b; border: none;  padding: 10px 15px; 
+
+	}
+
+
+/* radio */
+.jqTransformRadioWrapper {
+	float:left;
+	display:block;
+	width: 3%;
+	margin: 0px 0 0 0;
+}
+
+.jqTransformRadio {
+	background:transparent url(../images/form/radio.png) no-repeat left 0;
+	vertical-align:middle;
+	height:20px;
+	width:20px;
+	display:block;
+}
+
+/* checkbox */
+span.jqTransformCheckboxWrapper {
+	display:block;
+	float:left;
+	position: relative;
+}
+
+a.jqTransformCheckbox {
+	background:transparent url(../images/form/checkbox.png) no-repeat center top;
+	vertical-align:middle;
+	height:20px;
+	width:20px;
+	display:block
+}
+a.jqTransformChecked {
+	background-position:left -20px
+}
+
+/* select */
+.jqTransformSelectWrapper {
+	width:100%;
+	position:relative;
+	height:45px;
+	float:left;
+	text-align:left;
+	color:#605b5b;
+	background: #f2f1f0;
+	
+}
+.jqTransformSelectWrapper div { overflow: hidden; }
+.jqTransformSelectWrapper div span {
+	float: none;
+	position: absolute;
+	white-space: nowrap;
+	line-height: 45px;
+	padding: 0 15px 0 15px;
+	overflow: hidden;
+	cursor: pointer;
+	width: 88% !important;
+	color: #605b5b;
+	font-size: 14px;
+	}
+.jqTransformSelectWrapper a.jqTransformSelectOpen {
+	display:block;
+	position:relative;
+	width:48px;
+	height:45px;
+	float:right;	
+	background:url(../images/form/select_right.png) center center no-repeat
+}
+
+.jqTransformSelectWrapper ul {
+	position:absolute;
+	width:100%;
+	top:34px;
+	left:0;
+	list-style:none;
+	background-color:#e8ebed;
+	border:none;
+	display:none;
+	overflow:auto;
+	overflow-y:auto;
+	z-index:10;
+	margin:11px 0 0 0;
+	padding:0;
+	max-height: 180px;
+	
+	
+}
+
+.jqTransformSelectWrapper ul li {
+	width:100% !important;
+	margin: 0 0 0 0 !important; 
+	
+	
+	
+}
+.jqTransformSelectWrapper ul a {
+	display:block;
+	text-decoration:none;
+	font-size:13px;
+	color:#605b5b;
+	padding:0 0 0 5px;
+	line-height: 36px; 
+	height:36px;
+	font-size:14px;}
+.jqTransformSelectWrapper ul a.selected {
+	 font-size:14px;background:#01accd;color:#fff;
+}
+.jqTransformSelectWrapper ul a:hover,.jqTransformSelectWrapper ul a.selected:hover {
+	background:#576374;
+	color:#ffffff;
+	
+}
+
+/* jq Transform Hidden */
+.jqTransformHidden {
+	visibility:hidden;
+	position:absolute;
+	z-index:-10;
+	top: 0px;
+	width: 99%;
+	height:40px;
+	left: 0;
+}
+input[type=radio].jqTransformHidden {
+	width: 0;
+}
+/* File Input */
+.jqtransformdone input[type=file] {
+	display: none;
+}
+
+.check-h6{width: 95%; float: left; margin: 3px 0 10px 5px; padding: 0px 0 0px 10px;}
+
+.date{    width: 100% !important;
+    background: #f2f1f0;
+    color: #605b5b;
+    border: none;
+    height: 45px;
+    padding: 0 20px;}

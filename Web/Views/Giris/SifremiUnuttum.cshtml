@@ -1,0 +1,53 @@
+﻿@model Web.ViewModel.SifremiUnuttumViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İş Takip Uygulaması - Giriş Sayfası</title>
+
+    @Styles.Render("~/Genel/Css")
+
+</head>
+<body>
+    <div class="account-pages"></div>
+    <div class="clearfix"></div>
+    <div class="wrapper-page">
+        <div class="text-center">
+            <a href="/Giris" class="logo"><span style="font-size:26px; ">PROJE TAKİP SİSTEMİ</span></a>
+        </div>
+        <div class="m-t-40 card-box">
+            <div class="text-center">
+                <h4 class="text-uppercase font-bold m-b-0">ŞİFREMİ UNUTTUM</h4>
+            </div>
+            <div class="panel-body">
+                    @using (Html.BeginForm("SifremiUnuttum", "Giris", null, FormMethod.Post, htmlAttributes: new { @class = "form-horizontal m-t-20" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "text-danger" })
+
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                @Html.TextBoxFor(model => model.EpostaAdresi, htmlAttributes: new { @class = "form-control", @placeholder = "E-Posta Adresiniz" })
+                            </div>
+                        </div>
+                        <div class="form-group text-center m-t-30">
+                            <div class="col-xs-12">
+                                <button class="btn btn-custom btn-bordred btn-block waves-effect waves-light" type="submit">Gönder</button>
+                            </div>
+                        </div>
+                        <div class="form-group m-t-30 m-b-0">
+                            <div class="col-sm-12">
+                                <i class="fa fa-undo m-r-5"></i> @Html.ActionLink("Geri Dön", "GirisYap", "Giris", null, htmlAttributes: new { @class = "text-muted" })
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    @Scripts.Render("~/Genel/Js")
+</body>
+</html>

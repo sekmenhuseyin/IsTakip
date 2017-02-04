@@ -1,0 +1,67 @@
+﻿@model Web.ViewModel.IsMaddeViewModel
+
+@section Meta{
+    <title>İş Maddesi Ekle</title>
+}
+
+@section Content {
+    <h2 class="sub-header">İş Maddesi Ekle</h2>
+    <div class="table-responsive projeform">
+        @using (Html.BeginForm("IsMaddeEkle", "IsMadde", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Is.Id)
+            @Html.HiddenFor(model => model.Is.Url)
+            <ul class="form-style">
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Is.IsBasligi)</div>
+                    <div class="formtur">
+                       @Html.LabelForModel(Model.Is.IsBasligi)
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Is.IsAciklamasi)</div>
+                    <div class="formtur">
+                        @Html.LabelForModel(Model.Is.IsAciklamasi)
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.IsMadde.IsMaddeBasligi)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.IsMadde.IsMaddeBasligi, htmlAttributes: new { @class = "forminput", @datasize="100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.IsMadde.IsMaddeBitisTarih)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.IsMadde.IsMaddeBitisTarih, htmlAttributes: new { @class = "forminput", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.IsMadde.IsMaddeAciklamasi)</div>
+                    <div class="formtur">
+                        @Html.TextAreaFor(model => model.IsMadde.IsMaddeAciklamasi, htmlAttributes: new { @class = "formtext", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.IsMadde.DurumAciklama)</div>
+                    <div class="formtur">
+                        @Html.TextAreaFor(model => model.IsMadde.DurumAciklama, htmlAttributes: new { @class = "formtext", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.IsMadde.Durum)</div>
+                    <div class="formtur">
+                        @Html.CheckBoxFor(model => model.IsMadde.Durum, htmlAttributes: new { @class = "formselect", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formtur">
+                        <input type="submit" Value="İş Maddesi Ekle" name="" class="formsend" id="" />
+                    </div>
+                </li>
+            </ul>
+        }
+    </div>
+}

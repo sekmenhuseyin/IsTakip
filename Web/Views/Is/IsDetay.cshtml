@@ -1,0 +1,69 @@
+﻿@model Web.ViewModel.IsViewModel
+@{
+    ViewBag.Title = "IsDetay";
+}
+
+@section Meta{
+    <title>İş Detay</title>
+}
+
+@section Content{
+    <h2 class="sub-header">@Html.DisplayFor(model => model.Is.IsBasligi) Proje Detay</h2>
+    <div class="col-sm-12  col-md-7">
+        <h2 class="proje-baslik">@Html.LabelFor(model => model.Is.IsAciklamasi)</h2>
+        <div class="proje-aciklama">
+            @Html.DisplayFor(model => model.Is.IsAciklamasi)
+        </div>
+    </div>
+    <div class="col-sm-12  col-md-5">
+        <div class="proje-leftbx">
+            <h2 class="lefttit">İş Bilgileri</h2>
+            <ul class="projeul">
+                <li>
+                    <div class="proje-left">@Html.LabelFor(model => model.Is.IsBasligi)</div>
+                    <div class="proje-nokta">:</div>
+                    <div class="proje-right">@Html.DisplayFor(model => model.Is.IsBasligi)</div>
+                </li>
+                <li>
+                    <div class="proje-left">@Html.LabelFor(model => model.Is.Durum)</div>
+                    <div class="proje-nokta">:</div>
+                    <div class="proje-right">@Html.DisplayFor(model => model.Is.Durum)</div>
+                </li>
+                <li>
+                    <div class="proje-left">@Html.LabelFor(model => model.Is.Tarih)</div>
+                    <div class="proje-nokta">:</div>
+                    <div class="proje-right">@Html.DisplayFor(model => model.Is.Tarih)</div>
+                </li>
+                <li>
+                    <div class="proje-left">@Html.LabelFor(model => model.Is.BitisTarihi)</div>
+                    <div class="proje-nokta">:</div>
+                    <div class="proje-right">@Html.DisplayFor(model => model.Is.BitisTarihi)</div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    @using (@Html.BeginForm("IsMaddeDurumGuncelle", "IsMadde", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="col-sm-12  col-md-5">
+            <div class="proje-leftbx">
+                <h2 class="proje-baslik">İş Maddeleri</h2>
+                <ul class="projeul">
+                    @foreach (var madde in Model.IsMaddeler)
+                    {
+                        <li>
+                            @Html.HiddenFor(model => madde.Id)
+                            @Html.HiddenFor(model => madde.Url)
+                            <div class="proje-left">@Html.CheckBoxFor(model => madde.Durum) @Html.DisplayFor(model => madde.IsMaddeBasligi)</div>
+                            <div class="proje-nokta">:</div>
+                            <div class="proje-right"> <div style="float:right">@Html.ActionLink("Düzenle", "IsMaddeGuncelle", "IsMadde", new { IsUrl = madde.Is.Url, url = madde.Url }, htmlAttributes: new { @class = "btndty" })  @Html.ActionLink("Sil", "IsMaddeSil", "IsMadde", new { IsUrl = madde.Is.Url, url = madde.Url }, htmlAttributes: new { @class = "btnsil" })</div></div>
+                        </li>
+                    }
+                </ul>
+                <input type="submit" Value="İş Madde Güncelle" name="" class="formsend" id="" />
+                @Html.ActionLink("Yeni Madde Ekle", "IsMaddeEkle", "IsMadde", new { IsUrl = Model.Is.Url }, htmlAttributes: new { @class = "formsend" })
+            </div>
+        </div>
+    }
+}

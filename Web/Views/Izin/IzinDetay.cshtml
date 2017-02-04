@@ -1,0 +1,69 @@
+﻿@model Web.ViewModel.IzinViewModel
+
+@section Meta{
+    <title>İzin Detay</title>
+}
+
+@section Content{
+    <h2 class="sub-header">İzin Detay</h2>
+    <div class="col-sm-12  col-md-7">
+        <h2 class="proje-baslik">@Html.LabelFor(model => model.Izin.IzinAciklamasi)</h2>
+        <div class="proje-aciklama">
+            @Html.DisplayFor(model => model.Izin.IzinAciklamasi)
+        </div>
+        <h2 class="proje-baslik">@Html.LabelFor(model => model.Izin.IzinDurumAciklamasi)</h2>
+        <div class="proje-aciklama">
+            @Html.DisplayFor(model => model.Izin.IzinDurumAciklamasi)
+        </div>
+    </div>
+    <div class="col-sm-12  col-md-5">
+        <div class="proje-leftbx">
+            <h2 class="lefttit">İzin Detayları</h2>
+            <ul class="projeul">
+                <li>
+                    <div class="proje-left">@Html.LabelFor(model => model.Izin.Eleman.Ad) @Html.LabelFor(model => model.Izin.Eleman.Soyad)</div>
+                    <div class="proje-nokta">:</div>
+                    <div class="proje-right">@Html.DisplayFor(model => model.Izin.Eleman.Ad) @Html.DisplayFor(model => model.Izin.Eleman.Soyad)</div>
+                </li>
+                <li>
+                    <div class="proje-left">@Html.LabelFor(model => model.Izin.IzinBasligi)</div>
+                    <div class="proje-nokta">:</div>
+                    <div class="proje-right">@Html.DisplayFor(model => model.Izin.IzinBasligi)</div>
+                </li>
+                <li>
+                    <div class="proje-left">@Html.LabelFor(model => model.Izin.IzinDurum)</div>
+                    <div class="proje-nokta">:</div>
+                    <div class="proje-right">@Html.DisplayFor(model => model.Izin.IzinDurum)</div>
+                </li>
+                <li>
+                    <div class="proje-left">@Html.LabelFor(model => model.Izin.BaslangicTarihi)</div>
+                    <div class="proje-nokta">:</div>
+                    <div class="proje-right">@Html.DisplayFor(model => model.Izin.BaslangicTarihi)</div>
+                </li>
+                <li>
+                    <div class="proje-left">@Html.LabelFor(model => model.Izin.BitisTarihi)</div>
+                    <div class="proje-nokta">:</div>
+                    <div class="proje-right">@Html.DisplayFor(model => model.Izin.BitisTarihi)</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+<h2 class="sub-header">Geçmiş İzinler</h2>
+<div class="table-responsive projeform">
+    <ul class="form-style">
+@foreach (var item in Model.GecmisIzinler)
+{
+    if (item.Url != Model.Izin.Url)
+    {
+        <li style="border-bottom:1px solid #ddd; padding-bottom:10px;">
+            <div class="formbaslik"></div>
+            <div class="formtur">
+
+                <span style="float:left; margin-right:20px; margin-top:5px;">@item.IzinDurum</span> <span style="float:left; margin-top:5px;">@item.IzinBasligi</span> <div style="float:right;"><span style="float:left; margin-top:5px; margin-right:10px;">@item.BaslangicTarihi</span> <span style="float:left; margin-top:5px">@item.BitisTarihi</span></div>
+            </div>
+        </li>
+    }
+}
+    </ul>
+</div>
+}

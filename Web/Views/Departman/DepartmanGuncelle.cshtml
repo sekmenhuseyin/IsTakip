@@ -1,0 +1,46 @@
+﻿@model Web.ViewModel.DepartmanViewModel
+
+@section Meta{
+    <title>Departman Güncelle</title>
+}
+
+@section Content {
+    <h2 class="sub-header">Departman Güncelle</h2>
+    <div class="table-responsive projeform">
+        @using (Html.BeginForm("DepartmanGuncelle", "Departman", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <p>@Html.DisplayFor(model => model.Sonuc)</p>
+
+            @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Departman.Id)
+            @Html.HiddenFor(model => model.Departman.Url)
+            <ul class="form-style">
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Departman.DepartmanAdi)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.Departman.DepartmanAdi, htmlAttributes: new { @class = "forminput", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Departman.YoneticiId)</div>
+                    <div class="formtur">
+                        @Html.DropDownListFor(model => model.Departman.YoneticiId, Model.PersonelListe, htmlAttributes: new { @class = "formselect", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik"></div>
+                    <div class="formtur">
+                        @Html.CheckBoxFor(model => model.Departman.Durum, htmlAttributes: new { @class = "", @name = "my-checkbox" })<h6 class="check-h6">@Html.LabelFor(model => model.Departman.Durum)</h6>
+                    </div>
+                </li>
+                <li>
+                    <div class="formtur">
+                        <input type="submit" Value="Departman Güncelle" name="" class="formsend" id="" />
+                    </div>
+                </li>
+            </ul>
+        }
+    </div>
+}

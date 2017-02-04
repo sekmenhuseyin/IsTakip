@@ -1,0 +1,126 @@
+
+body {
+  padding-top: 0px;
+}
+
+
+
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+
+.navbar-fixed-top {
+  border: 0;
+}
+a{outline: none; text-decoration: none;}
+a:active{outline: none; text-decoration: none;}
+a:focus{outline: none; text-decoration: none;}
+
+a:hover{outline: none; text-decoration: none;}
+.btndty{ margin:2px 3px 0 2px; padding: 5px 10px; background:#428bca; border-radius: 6px; color: #ffffff; }
+.btndty:hover{color: #ffffff; background: #222222;}
+.btndty:focus{color: #ffffff; background: #428bca;}
+
+.btndzn{ margin:2px 3px 0 2px; padding: 5px 10px; background:#222222; border-radius: 6px; color: #ffffff; }
+.btndzn:hover{color: #ffffff; background: #373738;}
+.btndzn:focus{color: #ffffff; background: #222222;}
+
+.btnsil{ margin:2px 3px 0 2px; padding: 5px 10px; background:#CA4242; border-radius: 6px; color: #ffffff; }
+.btnsil:hover{color: #ffffff; background: #428bca;}
+.btnsil:focus{color: #ffffff; background: #CA4242;}
+
+.projeform ul{width: 100%; float: left; padding: 0;}
+.projeform ul li{width: 49%; float: left; margin: 0 2% 20px 0; list-style: none;}
+.projeform ul li:nth-child(2n){width: 49%; float: left; margin: 0 0 20px 0; list-style: none;}
+.projeform ul li .formbaslik{width: 100%; float: left; margin: 0 0 10px 0;}
+.formtur{width: 100%; float: left;}
+
+/*.projeform ul li .forminput{width: 100%; float: left; padding: 7px 10px; border:1px solid #C7CACC; outline: none;}
+.projeform ul li .forminput:focus{background: #eeeeee; border:1px solid #C7CACC;}
+
+.projeform ul li .formtext{width: 100%; float: left; padding: 7px 10px; border:1px solid #C7CACC; outline: none; height: 140px;}
+.projeform ul li .formtext:focus{background: #eeeeee; border:1px solid #C7CACC;}
+
+
+.projeform ul li .formselect{width: 100%; float: left; padding: 7px 10px; border:1px solid #C7CACC; outline: none;}
+.projeform ul li .formselect:focus{background: #eeeeee; border:1px solid #C7CACC;}*/
+
+.projeform ul li .formsend{width: 50%; float: left; padding: 7px 10px; border:1px solid #C7CACC; outline: none; }
+.projeform ul li .formsend:hover{background:#428bca;  color: #ffffff;}
+.formsend{width: 50%;background:#428bca; color: #ffffff;  float: left; padding: 7px 10px; border:1px solid #C7CACC; outline: none; text-align: center; }
+.formsend:hover{ opacity: 0.8; color: #ffffff;}
+
+
+.proje-baslik{width: 100%; float: left; margin: 30px 0 20px 0; padding: 0 0 10px 0; border-bottom:1px solid #cecece; font-size: 16px; color: #428BCA;}
+
+.proje-leftbx{width: 100%; float: left; margin: 30px 0 0 0; }
+.proje-leftbx .lefttit{width: 100%; float: left; margin: 0 0 15px 0; padding: 0 0 5px 0; font-size: 14px; font-weight: bold; }
+.proje-leftbx ul{width: 100%; float: left; padding: 0; margin: 0 0 30px 0;}
+.proje-leftbx ul li{width:100%; list-style: none; float: left; margin: 0 0 5px 0; padding: 0 0 5px 0; border-bottom: 1px solid #cecece;}
+.proje-leftbx ul li .proje-left{width:40%; float: left;}
+.proje-leftbx ul li .proje-nokta{width: 2%; margin: 0 5% 0 0; float: left;}
+.proje-leftbx ul li .proje-right{width:50%; float: left;}
+
+.personel-leftbx{width: 100%; float: left; margin: 30px 0 0 0; }
+.personel-leftbx .lefttit{width: 100%; float: left; margin: 0 0 15px 0; padding: 0 0 5px 0; font-size: 14px; font-weight: bold; }
+.personel-leftbx ul{width: 100%; float: left; padding: 0; margin: 0 0 30px 0;}
+.personel-leftbx ul li{width:100%; list-style: none; float: left; margin: 0 0 5px 0; padding: 0 0 5px 0; border-bottom: 1px solid #cecece;}
+.personel-leftbx ul li .personel-left{width:22%; float: left;}
+.personel-leftbx ul li .personel-nokta{width: 2%; margin: 0 1% 0 0; float: left;}
+.personel-leftbx ul li .personel-right{width:75%; float: left;}
+
+
+/*******----------- HOME PAGE START -----------*******/
+
+.message-bx{width:100%; float: left; margin: 0 0 20px 0; }
+.message-bx ul{width:100%; float:left; height:300px;  overflow-y:scroll; padding: 0;}
+.message-bx ul li{width: 100%; float: left; margin: 0 0 20px 0; list-style: none;}
+
+.message-bx ul li .message-ico{width: 50px; height: 50px; float: left; margin: 0  10px 0 0;}
+.message-bx ul li .message-ico img{width: 100%; float: left;}
+.message-bx ul li .message-textbx{width:344px; background: #E5E5EA; position: relative; border-radius: 4px; border-top-left-radius: 0px; float: left; margin: 0  0px 0 0; padding: 5px 8px;}
+.message-bx ul li .message-textbx:after{ -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-right-colors: none; -moz-border-top-colors: none; border-color: #E5E5EA #E5E5EA rgba(0, 0, 0, 0) rgba(0, 0, 0, 0); border-style: solid; border-width: 5px; content: ""; height: 0; position: absolute; left: -9px; top: 0; width: 0;}
+.message-date{width: 100%; float: left; font-size: 12px; margin: 10px 0 0 0; font-style: italic;}
+/*******----------- HOME PAGE FINISH -----------*******/
+
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+.nav-sidebar {
+  margin-right: -21px; 
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+.main {
+  padding: 20px;
+}

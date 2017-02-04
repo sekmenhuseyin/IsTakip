@@ -1,0 +1,7 @@
+* Ekleme ve güncelleme kýsýmlarýnda validation bilgilerini eklemek gerekiyor.
+* Ekleme ve Güncelleme iþlemlerinden sonra uyarý verdirtmek gerekiyor.
+* Durum kýsýmlarýnda Aktif Pasif yazmasý istenebilir.
+* Departman Ekleme ve Düzenlemede Çalýþan kýsmýnda çoklu seçim yapýldýðýnda Ekleme yada Güncelleme esnasýnda (silme sýrasýnda null a eþitleniyor) seçilen kiþilerin bulunup bu kiþilerin departmanid lerinin eleman tablosundan deðiþtirilmesi gerekiyor. Ayrýca güncelleme sayfasý açýldýðýnda önceden seçilmiþ elemanlarýn seçili gelmesi gerekiyor.
+* iþ güncellemesi yapýldýðýnda durum güncellenmedi.
+* Ýþ listesinde bir personel sadece kendisine atananlarý bir dep. müdr. ise sadece kendi dep. inde bulunanlarý görebilecek.
+* Ýzin alan ve izni onaylanan bir personel izne çýktýðý tarihler arasýnda otomatik olarak izinli gösterilmeli.

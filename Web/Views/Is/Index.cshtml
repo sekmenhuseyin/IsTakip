@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Data.Model.Is>
+@section Meta{
+    <title>İş Listesi</title>
+}
+
+@section Content {
+    <h2 class="sub-header">İş Listesi</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.IsBasligi)</th>
+                    <th>@Html.DisplayNameFor(model => model.Tarih)</th>
+                    <th>@Html.DisplayNameFor(model => model.BitisTarihi)</th>
+                    <th>@Html.DisplayNameFor(model => model.Durum)</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(model => item.IsBasligi)</td>
+                        <td>@Html.DisplayFor(model => item.Tarih)</td>
+                        <td>@Html.DisplayFor(model => item.BitisTarihi)</td>
+                        <td>@Html.DisplayFor(model => item.Durum)</td>
+                        <td>
+                            @Html.ActionLink("Detay", "IsDetay", "Is", new { url = item.Url }, htmlAttributes: new { @class = "btndty" })
+                            @Html.ActionLink("Düzenle", "IsGuncelle", "Is", new { url = item.Url}, htmlAttributes: new { @class = "btndzn" })
+                            @Html.ActionLink("Sil", "IsSil", "Is", new { url = item.Url }, htmlAttributes: new { @class = "btnsil" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

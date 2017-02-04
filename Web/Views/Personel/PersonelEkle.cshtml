@@ -1,0 +1,98 @@
+﻿@model Web.ViewModel.PersonelViewModel
+
+@section Meta{
+    <title>Personel Ekle</title>
+}
+
+@section Content {
+    <h2 class="sub-header">Personel Ekle</h2>
+    <div class="table-responsive projeform">
+        @using (Html.BeginForm("PersonelEkle", "Personel", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <ul class="form-style">
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Personel.Eposta)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.Personel.Eposta, htmlAttributes: new { @class = "forminput", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Personel.Sifre)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.Personel.Sifre, htmlAttributes: new { @class = "forminput", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Personel.Ad)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.Personel.Ad, htmlAttributes: new { @class = "forminput", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Personel.Soyad)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.Personel.Soyad, htmlAttributes: new { @class = "forminput", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Personel.Telefon)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.Personel.Telefon, htmlAttributes: new { @class = "forminput", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Personel.DepartmanId)</div>
+                    <div class="formtur">
+                        @Html.DropDownListFor(model => model.Personel.DepartmanId, new SelectList(Model.Departmanlar, "Id", "DepartmanAdi"),"Departman Seçimi Yapınız !", htmlAttributes: new { @class = "formselect", @datasize = "100%" })
+                    </div>
+                </li>
+                @{
+                    var YoneticiRolId = Session["YoneticiRolId"].ToString();
+
+                    if (YoneticiRolId == "1")
+                    {
+                        <li>
+                            <div class="formbaslik">@Html.LabelFor(model => model.Personel.RolId)</div>
+                            <div class="formtur">
+                                @Html.DropDownListFor(model => model.Personel.RolId, new SelectList(Model.Roller, "Id", "RolAdi"), htmlAttributes: new { @class = "formselect", @datasize="100%" })
+                            </div>
+                        </li>
+                    }
+                }
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Personel.Durum)</div>
+                    <div class="formtur">
+                        @Html.EnumDropDownListFor(model => model.Personel.Durum, "Personel Durumu Seçiniz !", htmlAttributes: new { @class = "formselect", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Personel.IzınGunSayisi)</div>
+                    <div class="formtur">
+                        @Html.TextBoxFor(model => model.Personel.IzınGunSayisi, htmlAttributes: new { @class = "forminput", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Personel.DurumAciklamasi)</div>
+                    <div class="formtur">
+                        @Html.TextAreaFor(model => model.Personel.DurumAciklamasi, htmlAttributes: new { @class = "formtext", @datasize = "100%" })
+                    </div>
+                </li>
+                <li>
+                    <div class="formbaslik">@Html.LabelFor(model => model.Personel.AvatarResim)</div>
+                    <div class="formtur">
+                        <input type="text" data-size="80%" class="fileUpload-1 fileUpload " readonly>
+                        <input type="file" class="fileUpload-1">
+                        <span class="jqFileInput" data-rel="1">Gözat</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="formtur">
+                        <input type="submit" Value="Personel Ekle" name="" class="formsend" id="" />
+                    </div>
+                </li>
+            </ul>
+                    }
+    </div>
+}

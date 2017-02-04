@@ -1,0 +1,34 @@
+﻿@model Web.ViewModel.IsMaddeViewModel
+
+@section Meta{
+    <title>İş Maddeleri Listesi</title>
+}
+
+@section Content {
+    <h2 class="sub-header">@Model.Is.IsBasligi İş Madde Listesi</h2><div style="float:right;">@Html.ActionLink("İş Maddesi Ekle","IsMaddeEkle","IsMadde",new{isurl = Model.Is.Url}, new { @class="btndzn"})</div>
+    <div style="clear:both"></div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.IsMaddeleri)</th>
+                    <th>@Html.DisplayNameFor(model => model.IsMaddeleri)</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.IsMaddeleri)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(model => item.IsMaddeBasligi)</td>
+                        <td>@Html.DisplayFor(model => item.Durum)</td>
+                        <td>
+                            @Html.ActionLink("Düzenle", "IsMaddeGuncelle", "IsMadde", new {url = item.Url }, htmlAttributes: new { @class = "btndzn" })
+                            @Html.ActionLink("Sil", "IsMaddeSil", "IsMadde", new {  url = item.Url }, htmlAttributes: new { @class = "btnsil" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
